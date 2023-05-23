@@ -1,3 +1,13 @@
+/**
+ * Provides operating system-related utility methods and properties.
+ *
+ * @module
+ */
+declare global {
+    interface Window {
+        __TAURI_INVOKE__: <T>(cmd: string, args?: unknown) => Promise<T>;
+    }
+}
 type Platform = "linux" | "darwin" | "ios" | "freebsd" | "dragonfly" | "netbsd" | "openbsd" | "solaris" | "android" | "win32";
 type OsType = "Linux" | "Darwin" | "Windows_NT";
 type Arch = "x86" | "x86_64" | "arm" | "aarch64" | "mips" | "mips64" | "powerpc" | "powerpc64" | "riscv64" | "s390x" | "sparc64";

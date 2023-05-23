@@ -1,6 +1,6 @@
-import { invoke } from '@tauri-apps/api/tauri';
-
 // Copyright 2019-2023 Tauri Programme within The Commons Conservancy
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: MIT
 function isWindows() {
     return navigator.appVersion.includes("Win");
 }
@@ -25,7 +25,7 @@ const EOL = isWindows() ? "\r\n" : "\n";
  *
  */
 async function platform() {
-    return invoke("plugin:os|platform");
+    return window.__TAURI_INVOKE__("plugin:os|platform");
 }
 /**
  * Returns a string identifying the kernel version.
@@ -38,7 +38,7 @@ async function platform() {
  * @since 1.0.0
  */
 async function version() {
-    return invoke("plugin:os|version");
+    return window.__TAURI_INVOKE__("plugin:os|version");
 }
 /**
  * Returns `'Linux'` on Linux, `'Darwin'` on macOS, and `'Windows_NT'` on Windows.
@@ -51,7 +51,7 @@ async function version() {
  * @since 1.0.0
  */
 async function type() {
-    return invoke("plugin:os|kind");
+    return window.__TAURI_INVOKE__("plugin:os|kind");
 }
 /**
  * Returns the operating system CPU architecture for which the tauri app was compiled.
@@ -65,7 +65,7 @@ async function type() {
  * @since 1.0.0
  */
 async function arch() {
-    return invoke("plugin:os|arch");
+    return window.__TAURI_INVOKE__("plugin:os|arch");
 }
 /**
  * Returns the operating system's default directory for temporary files as a string.
@@ -78,7 +78,7 @@ async function arch() {
  * @since 1.0.0
  */
 async function tempdir() {
-    return invoke("plugin:os|tempdir");
+    return window.__TAURI_INVOKE__("plugin:os|tempdir");
 }
 
 export { EOL, arch, platform, tempdir, type, version };
