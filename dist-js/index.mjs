@@ -9,7 +9,7 @@ function isWindows() {
  * - `\n` on POSIX
  * - `\r\n` on Windows
  *
- * @since 1.0.0
+ * @since 2.0.0
  * */
 const EOL = isWindows() ? "\r\n" : "\n";
 /**
@@ -21,7 +21,7 @@ const EOL = isWindows() ? "\r\n" : "\n";
  * const platformName = await platform();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  *
  */
 async function platform() {
@@ -35,7 +35,7 @@ async function platform() {
  * const osVersion = await version();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 async function version() {
     return window.__TAURI_INVOKE__("plugin:os|version");
@@ -48,7 +48,7 @@ async function version() {
  * const osType = await type();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 async function type() {
     return window.__TAURI_INVOKE__("plugin:os|kind");
@@ -62,7 +62,7 @@ async function type() {
  * const archName = await arch();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 async function arch() {
     return window.__TAURI_INVOKE__("plugin:os|arch");
@@ -75,7 +75,7 @@ async function arch() {
  * const tempdirPath = await tempdir();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 async function tempdir() {
     return window.__TAURI_INVOKE__("plugin:os|tempdir");

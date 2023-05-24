@@ -16,7 +16,7 @@ type Arch = "x86" | "x86_64" | "arm" | "aarch64" | "mips" | "mips64" | "powerpc"
  * - `\n` on POSIX
  * - `\r\n` on Windows
  *
- * @since 1.0.0
+ * @since 2.0.0
  * */
 declare const EOL: string;
 /**
@@ -28,7 +28,7 @@ declare const EOL: string;
  * const platformName = await platform();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  *
  */
 declare function platform(): Promise<Platform>;
@@ -40,7 +40,7 @@ declare function platform(): Promise<Platform>;
  * const osVersion = await version();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 declare function version(): Promise<string>;
 /**
@@ -51,7 +51,7 @@ declare function version(): Promise<string>;
  * const osType = await type();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 declare function type(): Promise<OsType>;
 /**
@@ -63,7 +63,7 @@ declare function type(): Promise<OsType>;
  * const archName = await arch();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 declare function arch(): Promise<Arch>;
 /**
@@ -74,7 +74,7 @@ declare function arch(): Promise<Arch>;
  * const tempdirPath = await tempdir();
  * ```
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 declare function tempdir(): Promise<string>;
 /**
