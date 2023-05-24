@@ -80,6 +80,22 @@ async function arch() {
 async function tempdir() {
     return window.__TAURI_INVOKE__("plugin:os|tempdir");
 }
+/**
+ * Returns a String with a `BCP-47` language tag inside. If the locale couldn’t be obtained, `null` is returned instead.
+ * @example
+ * ```typescript
+ * import { locale } from '@tauri-apps/plugin-os';
+ * const locale = await locale();
+ * if (locale) {
+ *    // use the locale string here
+ * }
+ * ```
+ *
+ * @since 2.0.0
+ */
+async function locale() {
+    return window.__TAURI_INVOKE__("plugin:os|locale");
+}
 
-export { EOL, arch, platform, tempdir, type, version };
+export { EOL, arch, locale, platform, tempdir, type, version };
 //# sourceMappingURL=index.mjs.map
