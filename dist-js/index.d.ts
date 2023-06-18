@@ -6,19 +6,24 @@
 declare global {
     interface Window {
         __TAURI_INVOKE__: <T>(cmd: string, args?: unknown) => Promise<T>;
+        __TAURI__: {
+            os: {
+                __eol: string;
+            };
+        };
     }
 }
 type Platform = "linux" | "macos" | "ios" | "freebsd" | "dragonfly" | "netbsd" | "openbsd" | "solaris" | "android" | "windows";
 type OsType = "linux" | "windows" | "macss" | "ios" | "android";
 type Arch = "x86" | "x86_64" | "arm" | "aarch64" | "mips" | "mips64" | "powerpc" | "powerpc64" | "riscv64" | "s390x" | "sparc64";
 /**
- * The operating system-specific end-of-line marker.
+ * Returns the operating system-specific end-of-line marker.
  * - `\n` on POSIX
  * - `\r\n` on Windows
  *
  * @since 2.0.0
  * */
-declare const EOL: string;
+declare function eol(): string;
 /**
  * Returns a string describing the specific operating system in use.
  * The value is set at compile time. Possible values are `'linux'`, `'macos'`, `'ios'`, `'freebsd'`, `'dragonfly'`, `'netbsd'`, `'openbsd'`, `'solaris'`, `'android'`, `'windows'`
@@ -113,5 +118,5 @@ declare function exeExtension(): Promise<string | null>;
  * ```
  */
 declare function hostname(): Promise<string | null>;
-export { EOL, platform, family, version, type, arch, locale, exeExtension, hostname, };
+export { eol, platform, family, version, type, arch, locale, exeExtension, hostname, };
 export type { Platform, OsType, Arch, Family };
