@@ -113,7 +113,7 @@ async function exeExtension() {
  * Returns the host name of the operating system.
  * @example
  * ```typescript
- * import { hostname } from '@tauri-apps/api/os';
+ * import { hostname } from '@tauri-apps/plugin-os';
  * const hostname = await hostname();
  * ```
  */
