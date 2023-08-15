@@ -14,7 +14,7 @@ declare global {
     }
 }
 type Platform = "linux" | "macos" | "ios" | "freebsd" | "dragonfly" | "netbsd" | "openbsd" | "solaris" | "android" | "windows";
-type OsType = "linux" | "windows" | "macss" | "ios" | "android";
+type OsType = "linux" | "windows" | "macos" | "ios" | "android";
 type Arch = "x86" | "x86_64" | "arm" | "aarch64" | "mips" | "mips64" | "powerpc" | "powerpc64" | "riscv64" | "s390x" | "sparc64";
 /**
  * Returns the operating system-specific end-of-line marker.
