@@ -1,11 +1,6 @@
-/**
- * Provides operating system-related utility methods and properties.
- *
- * @module
- */
+/** @ignore */
 declare global {
     interface Window {
-        __TAURI_INVOKE__: <T>(cmd: string, args?: unknown) => Promise<T>;
         __TAURI__: {
             os: {
                 __eol: string;
