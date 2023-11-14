@@ -1,10 +1,8 @@
 /** @ignore */
 declare global {
     interface Window {
-        __TAURI__: {
-            os: {
-                __eol: string;
-            };
+        __TAURI_OS_PLUGIN_INTERNALS__: {
+            eol: string;
         };
     }
 }
