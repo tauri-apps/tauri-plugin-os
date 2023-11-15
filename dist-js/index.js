@@ -129,4 +129,3 @@ async function hostname() {
 }
 
 export { arch, eol, exeExtension, family, hostname, locale, platform, type, version };
-//# sourceMappingURL=index.mjs.map

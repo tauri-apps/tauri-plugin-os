@@ -1,43 +1,6 @@
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
+'use strict';
 
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-/* global Reflect, Promise, SuppressedError, Symbol */
-
-
-typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
-    var e = new Error(message);
-    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
-};
-
-/**
- * Sends a message to the backend.
- * @example
- * ```typescript
- * import { invoke } from '@tauri-apps/api/primitives';
- * await invoke('login', { user: 'tauri', password: 'poiwe3h4r5ip3yrhtew9ty' });
- * ```
- *
- * @param cmd The command name.
- * @param args The optional arguments to pass to the command.
- * @param options The request options.
- * @return A promise resolving or rejecting to the backend response.
- *
- * @since 1.0.0
- */
-async function invoke(cmd, args = {}, options) {
-    return window.__TAURI_INTERNALS__.invoke(cmd, args, options);
-}
+var primitives = require('@tauri-apps/api/primitives');
 
 // Copyright 2019-2023 Tauri Programme within The Commons Conservancy
 // SPDX-License-Identifier: Apache-2.0
@@ -71,7 +34,7 @@ function eol() {
  *
  */
 async function platform() {
-    return invoke("plugin:os|platform");
+    return primitives.invoke("plugin:os|platform");
 }
 /**
  * Returns the current operating system version.
@@ -84,7 +47,7 @@ async function platform() {
  * @since 2.0.0
  */
 async function version() {
-    return invoke("plugin:os|version");
+    return primitives.invoke("plugin:os|version");
 }
 /**
  * Returns the current operating system family. Possible values are `'unix'`, `'windows'`.
@@ -97,7 +60,7 @@ async function version() {
  * @since 2.0.0
  */
 async function family() {
-    return invoke("plugin:os|family");
+    return primitives.invoke("plugin:os|family");
 }
 /**
  * Returns the current operating system type. Returns `'linux'` on Linux, `'macos'` on macOS, `'windows'` on Windows, `'ios'` on iOS and `'android'` on Android.
@@ -110,7 +73,7 @@ async function family() {
  * @since 2.0.0
  */
 async function type() {
-    return invoke("plugin:os|os_type");
+    return primitives.invoke("plugin:os|os_type");
 }
 /**
  * Returns the current operating system architecture.
@@ -124,7 +87,7 @@ async function type() {
  * @since 2.0.0
  */
 async function arch() {
-    return invoke("plugin:os|arch");
+    return primitives.invoke("plugin:os|arch");
 }
 /**
  * Returns a String with a `BCP-47` language tag inside. If the locale couldn’t be obtained, `null` is returned instead.
@@ -140,7 +103,7 @@ async function arch() {
  * @since 2.0.0
  */
 async function locale() {
-    return invoke("plugin:os|locale");
+    return primitives.invoke("plugin:os|locale");
 }
 /**
  * Returns the file extension, if any, used for executable binaries on this platform. Possible values are `'exe'` and `''` (empty string).
@@ -153,7 +116,7 @@ async function locale() {
  * @since 2.0.0
  */
 async function exeExtension() {
-    return invoke("plugin:os|exe_extension");
+    return primitives.invoke("plugin:os|exe_extension");
 }
 /**
  * Returns the host name of the operating system.
@@ -164,8 +127,15 @@ async function exeExtension() {
  * ```
  */
 async function hostname() {
-    return invoke("plugin:os|hostname");
+    return primitives.invoke("plugin:os|hostname");
 }
 
-export { arch, eol, exeExtension, family, hostname, locale, platform, type, version };
-//# sourceMappingURL=index.min.js.map
+exports.arch = arch;
+exports.eol = eol;
+exports.exeExtension = exeExtension;
+exports.family = family;
+exports.hostname = hostname;
+exports.locale = locale;
+exports.platform = platform;
+exports.type = type;
+exports.version = version;
