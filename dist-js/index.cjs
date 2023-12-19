@@ -1,6 +1,6 @@
 'use strict';
 
-var primitives = require('@tauri-apps/api/primitives');
+var core = require('@tauri-apps/api/core');
 
 // Copyright 2019-2023 Tauri Programme within The Commons Conservancy
 // SPDX-License-Identifier: Apache-2.0
@@ -34,7 +34,7 @@ function eol() {
  *
  */
 async function platform() {
-    return primitives.invoke("plugin:os|platform");
+    return core.invoke("plugin:os|platform");
 }
 /**
  * Returns the current operating system version.
@@ -47,7 +47,7 @@ async function platform() {
  * @since 2.0.0
  */
 async function version() {
-    return primitives.invoke("plugin:os|version");
+    return core.invoke("plugin:os|version");
 }
 /**
  * Returns the current operating system family. Possible values are `'unix'`, `'windows'`.
@@ -60,7 +60,7 @@ async function version() {
  * @since 2.0.0
  */
 async function family() {
-    return primitives.invoke("plugin:os|family");
+    return core.invoke("plugin:os|family");
 }
 /**
  * Returns the current operating system type. Returns `'linux'` on Linux, `'macos'` on macOS, `'windows'` on Windows, `'ios'` on iOS and `'android'` on Android.
@@ -73,7 +73,7 @@ async function family() {
  * @since 2.0.0
  */
 async function type() {
-    return primitives.invoke("plugin:os|os_type");
+    return core.invoke("plugin:os|os_type");
 }
 /**
  * Returns the current operating system architecture.
@@ -87,7 +87,7 @@ async function type() {
  * @since 2.0.0
  */
 async function arch() {
-    return primitives.invoke("plugin:os|arch");
+    return core.invoke("plugin:os|arch");
 }
 /**
  * Returns a String with a `BCP-47` language tag inside. If the locale couldn’t be obtained, `null` is returned instead.
@@ -103,7 +103,7 @@ async function arch() {
  * @since 2.0.0
  */
 async function locale() {
-    return primitives.invoke("plugin:os|locale");
+    return core.invoke("plugin:os|locale");
 }
 /**
  * Returns the file extension, if any, used for executable binaries on this platform. Possible values are `'exe'` and `''` (empty string).
@@ -116,7 +116,7 @@ async function locale() {
  * @since 2.0.0
  */
 async function exeExtension() {
-    return primitives.invoke("plugin:os|exe_extension");
+    return core.invoke("plugin:os|exe_extension");
 }
 /**
  * Returns the host name of the operating system.
@@ -127,7 +127,7 @@ async function exeExtension() {
  * ```
  */
 async function hostname() {
-    return primitives.invoke("plugin:os|hostname");
+    return core.invoke("plugin:os|hostname");
 }
 
 exports.arch = arch;
