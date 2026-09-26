@@ -15,6 +15,13 @@ var core = require('@tauri-apps/api/core');
  * - `\n` on POSIX
  * - `\r\n` on Windows
  *
+ * @example
+ * ```typescript
+ * import { eol } from '@tauri-apps/plugin-os';
+ * const eolChar = eol();
+ * ```
+ *
+ * @returns The end-of-line marker for the current platform.
  * @since 2.0.0
  * */
 function eol() {
@@ -30,6 +37,7 @@ function eol() {
  * const platformName = platform();
  * ```
  *
+ * @returns The platform name.
  * @since 2.0.0
  *
  */
@@ -44,6 +52,7 @@ function platform() {
  * const osVersion = version();
  * ```
  *
+ * @returns The operating system version.
  * @since 2.0.0
  */
 function version() {
@@ -57,6 +66,7 @@ function version() {
  * const family = family();
  * ```
  *
+ * @returns The operating system family.
  * @since 2.0.0
  */
 function family() {
@@ -70,6 +80,7 @@ function family() {
  * const osType = type();
  * ```
  *
+ * @returns The operating system type.
  * @since 2.0.0
  */
 function type() {
@@ -84,6 +95,7 @@ function type() {
  * const archName = arch();
  * ```
  *
+ * @returns The operating system architecture.
  * @since 2.0.0
  */
 function arch() {
@@ -97,6 +109,7 @@ function arch() {
  * const exeExt = exeExtension();
  * ```
  *
+ * @returns The file extension used for executable binaries on this platform.
  * @since 2.0.0
  */
 function exeExtension() {
@@ -113,6 +126,7 @@ function exeExtension() {
  * }
  * ```
  *
+ * @returns A promise resolving to the `BCP-47` language tag, or `null` if it could not be obtained.
  * @since 2.0.0
  */
 async function locale() {
@@ -125,6 +139,9 @@ async function locale() {
  * import { hostname } from '@tauri-apps/plugin-os';
  * const hostname = await hostname();
  * ```
+ *
+ * @returns A promise resolving to the host name of the operating system.
+ * @since 2.0.0
  */
 async function hostname() {
     return await core.invoke('plugin:os|hostname');
